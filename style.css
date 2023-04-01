@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --login-col: rgb(206, 206, 206);
+  --main-col: rgba(28, 126, 218, 0.849);
+
+}
+
+.loading {
+    background-image: url(./image/default_bg.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
+  
+ .loading img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .hide {
+    display: none !important;
+  }
+
+
+                          /* login page */
+
+  .login-top {
+    background-image: url(./image/login-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .dark-cover {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.205);
+  }
+
+  .login-disc {
+    display: grid;
+    text-align: center;
+    color: var(--login-col);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    width: 30%;
+
+  }
+ 
+
+  .login-img {
+    background-image: url(./image/user_pp.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: auto;
+    
+  }
+
+  .user-info > p:nth-child(2) {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  .pwd-input {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .pwd-input > input {
+    width: 50%;
+    height: 30px;
+    border-color: transparent;
+    box-shadow: 1px 3px 6px var(--main-col), inset 0px 1px 6px var(--main-col);
+    background: #00000094;
+    color: white;
+    border-radius: 4px;
+  }
+  .pwd-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.521);
+    padding-left: 10px;
+  }
+  .pwd-input > button {
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    transition: all 0.5s;
+  }
+  .pwd-input > button:hover {
+    color: rgba(245, 245, 245, 0.452);
+
+  }
+  .sign-in {
+    display: grid;
+    font-size: 12px;
+    gap: 15px;
+  }
+  .login-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px 30px;
+    display: flex;
+    gap: 20px;
+  }
+  .login-bottom i {
+    color: #ffffffa9;
+  }
+
+
+
+
+
+  #input-pin-invalid {
+    border: 3px solid red;
+    animation: shake 0.2s ease-in-out 1 forwards;
+  }
+
+  #input-pin-correct {
+    border: 3px solid green;
+    animation: greenCorrect 0.2s ease-in-out 1 forwards;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* keyframes */
+
+  @keyframes reviel {
+    from {opacity: 0;} to {opacity: 1;}
+    
+  }
+  @keyframes revielOut {
+    0% {transform: translate(0%);} 50% {transform: translate(-50%);} 100% {transform: translate(-100%);}
+    
+  }
+  .reviel {
+    animation: reviel 1.5s ease-in 1 forwards;
+  }
+  .reviel-triple {
+    animation: reviel 5s ease-in 1 forwards;
+  }
+  .reviel-out {
+    animation: revielOut 1.5s ease-in 1 forwards;
+  }
+  @keyframes shake {
+    0% {transform: translate(0);} 25%{transform: translate(3px);} 50%{transform: translate(0px);} 75%{transform: translate(-3px);} 100%{transform: translate(0);}
+  }
+  @keyframes greenCorrect {
+    from{border: 1px soild black;} to {border: 3px solid green;}
+  }
