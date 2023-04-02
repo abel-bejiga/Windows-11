@@ -10,7 +10,26 @@
   --main-col: rgba(28, 126, 218, 0.849);
 
 }
-
+.intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.intro > button {
+  width: 200px;
+  height: 30px;
+  border-color: transparent;
+  border-radius: 10px;
+  background: rgb(113, 175, 211);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.intro > button:hover {
+  transform: scale(1.2);
+  background: var(--main-col);
+  color: white;
+}
 .loading {
     background-image: url(./image/default_bg.jpg);
     background-position: center bottom;
@@ -31,9 +50,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .hide {
+  .hide, #hide {
     display: none !important;
   }
+
 
 
                           /* login page */
@@ -129,9 +149,26 @@
   }
   .login-bottom i {
     color: #ffffffa9;
+    cursor: pointer;
   }
-
-
+          /* access denied */
+  .access-denied {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .access-denied > h1 {
+    font-size: 50px;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Eater', cursive;
+  }
+  .access-denied > p {
+    text-align: center;
+    font-size: 16px;
+    color: rgb(43, 38, 38);
+  }
 
 
 

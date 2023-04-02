@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/daae0fece6.js" crossorigin="anonymous"></script>
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2mily=Eater&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- <section>
+  <section class="intro hide">
+    <button type="submit" id="continue-btn">Click here to continue</button>
+  </section>
+  <section>
      <div id="win-img">
         <img src="./image/Windows_11_logo.svg.png" alt="Loading...">
       </div>
-      <audio id="intro-sound" autoplay >
+      <audio id="intro-sound" autoplay allow="autoplay">
         <source controls  src="./sounds/windows_11_startup.mp3" type="audio/mpeg">
       </audio>
-    </section> -->
-<main>
+    </section>
+<!-- <main>
     <section id="login">
       <div class="login-top">
         <div class="dark-cover">
@@ -31,6 +40,7 @@
               <button id="pin-btn" type="submit"><i class="fa-solid fa-circle-arrow-right"></i></button>
             </div>
             <div class="sign-in">
+              <p class="pin-trials hide"></p>
               <p>I forgot my PIN</p>
               <p>Sign-in options</p>
             </div>
@@ -44,8 +54,16 @@
         </div>
       </div>
     </section>
+    
 
-    <section>
+    <!-- access denied -->
+    <!-- <section id="multiple-invalid-pin">
+      <div class="access-denied hide">
+        <h1>access denied! good bye~~~</h1>
+        <p>error: multiple invalid password</p>
+      </div>
+    </section>
+    <section id="sign-in-success">
       <div class="">
         <h1 class="hide">You are signed in!</h1>
       </div>
@@ -54,8 +72,11 @@
 
 
 
-</main>
+</main>  -->
+
+<!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
