@@ -16,64 +16,54 @@
 </head>
 <body>
   <section class="intro hide">
-    <button type="submit" id="continue-btn">Click here to continue</button>
+    <!-- <button type="submit" id="continue-btn"><img src="./image/icons8-power-96.png" alt=""><p>Click here to continue</p></button>
+     -->
+     <div class="power-switch">
+      <input type="checkbox" />
+      <div class="button">
+        <svg class="power-off">
+          <use xlink:href="#line" class="line" />
+          <use xlink:href="#circle" class="circle" />
+        </svg>
+        <svg class="power-on">
+          <use xlink:href="#line" class="line" />
+          <use xlink:href="#circle" class="circle" />
+        </svg>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+        <line x1="75" y1="34" x2="75" y2="58"/>
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+        <circle cx="75" cy="80" r="35"/>
+      </symbol>
+    </svg>
+    
+    </div>
   </section>
   <section>
      <div id="win-img">
-        <img src="./image/Windows_11_logo.svg.png" alt="Loading...">
+      <div class="dark-cover2">
+        <div class="win-img-disc">
+        <div class="win11-add-img"></div>
+        <div class="loader-wrapper">
+          <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
       </div>
+      </div>
+      </div>
+    </div>
       <audio id="intro-sound" autoplay allow="autoplay">
         <source controls  src="./sounds/windows_11_startup.mp3" type="audio/mpeg">
       </audio>
     </section>
-<!-- <main>
-    <section id="login">
-      <div class="login-top">
-        <div class="dark-cover">
-          <div class="login-disc">
-            <div class="user-info">
-              <div class="login-img"></div>
-                <p>John Doe</p>    
-            </div>
-            <div class="pwd-input">
-              <input type="password" placeholder="PIN = 1234 " id="input-pin">
-              <button id="pin-btn" type="submit"><i class="fa-solid fa-circle-arrow-right"></i></button>
-            </div>
-            <div class="sign-in">
-              <p class="pin-trials hide"></p>
-              <p>I forgot my PIN</p>
-              <p>Sign-in options</p>
-            </div>
-          </div>
-      
-          <div class="login-bottom">
-            <i class="fa-solid fa-network-wired"></i>
-            <i class="fa-brands fa-accessible-icon"></i>
-            <i class="fa-solid fa-power-off"></i>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-
-    <!-- access denied -->
-    <!-- <section id="multiple-invalid-pin">
-      <div class="access-denied hide">
-        <h1>access denied! good bye~~~</h1>
-        <p>error: multiple invalid password</p>
-      </div>
-    </section>
-    <section id="sign-in-success">
-      <div class="">
-        <h1 class="hide">You are signed in!</h1>
-      </div>
-    </section>
-
-
-
-
-</main>  -->
-
+ 
 <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="./app.js"></script>

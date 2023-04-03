@@ -8,9 +8,12 @@
 :root {
   --login-col: rgb(206, 206, 206);
   --main-col: rgba(28, 126, 218, 0.849);
+  --main-color: rgba(199, 214, 247, 0.952);
+  --hover-color: rgba(143, 143, 143, 0.151);
+  --secondary-hover: rgba(238, 238, 238, 0.616);
 
 }
-.intro {
+/* .intro {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,18 +21,200 @@
 }
 .intro > button {
   width: 200px;
-  height: 30px;
+  height: 140px;
   border-color: transparent;
   border-radius: 10px;
-  background: rgb(113, 175, 211);
+  background: rgb(202, 202, 202);
   cursor: pointer;
   transition: all 0.5s;
 }
 .intro > button:hover {
   transform: scale(1.2);
   background: var(--main-col);
-  color: white;
+  color: rgb(212, 212, 212);
+} */
+body {
+  background: #1b1a23;
+  height: 100vh;
+  font: 400 16px "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+.power-switch {
+  --color-invert: #ffffff;
+  --width: 150px;
+  --height: 150px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--height);
+}
+.power-switch .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.power-switch .button:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: radial-gradient(circle closest-side, var(--color-invert), transparent);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.power-switch .button .power-on,
+.power-switch .button .power-off {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  fill: none;
+  stroke: var(--color-invert);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.power-switch .button .power-on .line,
+.power-switch .button .power-off .line {
+  opacity: 0.2;
+}
+.power-switch .button .power-on .circle,
+.power-switch .button .power-off .circle {
+  opacity: 0.2;
+  transform: rotate(-58deg);
+  transform-origin: center 80px;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 40;
+}
+.power-switch .button .power-on {
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.8));
+}
+.power-switch .button .power-on .line {
+  opacity: 0;
+  transition: opacity 0.3s ease 1s;
+}
+.power-switch .button .power-on .circle {
+  opacity: 1;
+  stroke-dashoffset: 220;
+  transition: transform 0s ease, stroke-dashoffset 1s ease 0s;
+}
+.power-switch input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+}
+.power-switch input:checked + .button:after {
+  opacity: 0.15;
+  transform: scale(2) perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.power-switch input:checked + .button .power-on,
+.power-switch input:checked + .button .power-off {
+  -webkit-animation: click-animation 0.3s ease forwards;
+          animation: click-animation 0.3s ease forwards;
+  transform: scale(1);
+}
+.power-switch input:checked + .button .power-on .line,
+.power-switch input:checked + .button .power-off .line {
+  -webkit-animation: line-animation 0.8s ease-in forwards;
+          animation: line-animation 0.8s ease-in forwards;
+}
+.power-switch input:checked + .button .power-on .circle,
+.power-switch input:checked + .button .power-off .circle {
+  transform: rotate(302deg);
+}
+.power-switch input:checked + .button .power-on .line {
+  opacity: 1;
+  transition: opacity 0.05s ease-in 0.55s;
+}
+.power-switch input:checked + .button .power-on .circle {
+  transform: rotate(302deg);
+  stroke-dashoffset: 40;
+  transition: transform 0.4s ease 0.2s, stroke-dashoffset 0.4s ease 0.2s;
+}
+
+@-webkit-keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 .loading {
     background-image: url(./image/default_bg.jpg);
     background-position: center bottom;
@@ -43,15 +228,27 @@
     background-color: #ffffff;
     z-index: 9999;
   }
-  
- .loading img {
+
+  .win11-img {
+    background-image: url(./image/Windows_11_logo.svg.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height:100%;
+    width: 50%;
+    min-width: 500px;
+    max-width: 700px;
   }
   .hide, #hide {
     display: none !important;
+  }
+  .dark-cover2 {
+    height: 100vh;
+    background-color: rgba(3, 3, 3, 0.781);
   }
 
 
@@ -64,6 +261,7 @@
     background-size: cover;
     background-position: center;
     height: 100vh;
+    width: 100vw;
   }
   
   .dark-cover {
@@ -113,6 +311,8 @@
 
   .pwd-input > input {
     width: 50%;
+    max-width: 300px;
+    min-width: 200px;
     height: 30px;
     border-color: transparent;
     box-shadow: 1px 3px 6px var(--main-col), inset 0px 1px 6px var(--main-col);
@@ -139,6 +339,10 @@
     font-size: 12px;
     gap: 15px;
   }
+  .pin-input-disc {
+    display: grid;
+    gap: 15px;
+  }
   .login-bottom {
     position: absolute;
     bottom: 0;
@@ -150,7 +354,13 @@
   .login-bottom i {
     color: #ffffffa9;
     cursor: pointer;
+    transition: all 0.5s;
   }
+  .login-bottom i:hover {
+    color: #fff;
+    transform: scale(1.2);
+  }
+
           /* access denied */
   .access-denied {
     position: absolute;
@@ -242,3 +452,119 @@
   @keyframes greenCorrect {
     from{border: 1px soild black;} to {border: 3px solid green;}
   }
+
+  @keyframes fadeOut {
+    from{opacity: 1;} to {opacity: 0;}
+    
+  }
+  .fadeOut {
+    transition: all 0.5s;
+    animation: fadeOut 1s ease-out 1 backwards;
+  }
+  @keyframes scaleDown {
+    from {transform: scale(1);} to {transform: scale(0.8);}
+  }
+  .scaleDown {
+    transition: all 0.3s;
+    animation: scaleDown 0.3s ease-in-out 1 backwards;
+  }
+
+  /* spinning loader */
+
+
+.loader-login, .loader-wrapper {
+  position: absolute;
+  top: 160%;
+  left: 50%;
+  transform: translate(-50%, -160%);
+  display: grid;
+  row-gap: 20px;
+}
+.loader-wrapper {
+  top: 70%;
+  transform: translate(-50%, -70%);
+}
+.loader-login p {
+  font-weight: 600;
+}
+.loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  margin: auto;
+
+}
+.loader .circle {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 5.5s;
+
+}
+.loader .circle:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+.loader .circle:nth-child(2) {
+  animation-delay: 240ms;
+
+}
+.loader .circle:nth-child(3) {
+  animation-delay: 480ms;
+}
+.loader .circle:nth-child(4) {
+  animation-delay: 720ms;
+}
+.loader .circle:nth-child(5) {
+  animation-delay: 960ms;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+ }
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+ }
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+ }
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+ }
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+ }
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+ }
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+ }
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+ }
+}
+
+
+
+
+

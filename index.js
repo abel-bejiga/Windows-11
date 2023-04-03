@@ -3,17 +3,23 @@
     $(".intro").removeClass('hide')
 $("#win-img").addClass("hide");
 
-$('#continue-btn').click(continueClicked);
-function continueClicked(){
+$('.power-switch input').click(powerClicked);
+function powerClicked(){
     $(this).addClass('hide')
+    setTimeout(() => {
+        
+   
+    $('loader').removeClass('hide');
 $("main").removeClass('hide').addClass("reviel-triple")
 $("#win-img").removeClass('hide').addClass("reviel").addClass("loading")
 setTimeout(() => {
     $("#win-img").addClass("hide");
+    $('loader').addClass('hide');
     
 }, 4000);
-introPlay();
 openLogIn();
+}, 1500);
+introPlay();
 }
 
 /////////////////////////////////////////////////
@@ -23,6 +29,7 @@ openLogIn();
 let audio = document.querySelector("#intro-sound");
     function introPlay() {
         $("#win-img").addClass("loading")
+        $(".win11-add-img").addClass("win11-img")
         audio.play();
     }
 
@@ -59,24 +66,22 @@ let pinCheck = () => {
         // login pin result ///////////////////////////////
     pin = Number(pin);
         if (pin === 1234){
-            $('.pin-trials').addClass('hide')
-            console.log("access granted!");
+            // $('.pin-trials').removeClass('hide').html("<h3>Welcome!</h3>");
+            $('.pin-input-disc').addClass('fadeOut').addClass('hide');
+            $('.loader-login').removeClass('hide');
             correctPin();
             setTimeout(() => {
                 loginPage.addClass("hide");
-                // $("#sign-in-success h1").removeClass("hide");
                 openDeskTop();
-            }, 1000);
+            }, 4000);
 
             
         } else { 
             trialCounter()
             
          if(isNaN(pin)) {
-            console.log("pin should only be numbers")
             wrongPin();
         } else {
-            console.log("access denied!")
             wrongPin();
 
         }
@@ -99,10 +104,15 @@ let countTrial = 4;
 
         function trialCounter(){
 
-            if (countTrial > 1) {   
-             countTrial--;        
-             $('.pin-trials').removeClass('hide').html(`You have ${countTrial} trial left!`);
-             console.log(countTrial)   
+        if (countTrial > 1) {   
+             countTrial--;
+             if (countTrial < 2){
+                $('.pin-trials').removeClass('hide').html(`You only have <span style='color:#C41E3A; font-weight:700; font-size: 17px'>${countTrial}</span> trial left!`);
+             }
+             else{
+
+                 $('.pin-trials').removeClass('hide').html(`You have <span style='color:#FFC300; font-weight:600; font-size: 15px'>${countTrial}</span> trial left!`);
+             }    
     
         } else if (countTrial === 1){
             $('#login').addClass('hide');
@@ -148,8 +158,30 @@ $("#current-date").html(dateDisplay());
                 // start menu ////
 $("#start-btn").click(startBtnClicked);
     function startBtnClicked(){
-        $('#start-menu').toggleClass('slide-down slide-up').toggleClass('show no-display');
+        $('#start-menu').toggleClass('slide-down slide-up').toggleClass('show');
+        setTimeout(() => {
+            
+            $('#start-menu').toggleClass('no-display');
+        }, 150);
 
     }
+$(document).keypress(winKeyPressed);
+function winKeyPressed(e) {
+
+    let key = e.which;
+        if (key == 32){
+            startBtnClicked();
+            console.log(key)
+        }
+}
+$('.pc-info').click(pcInfoClicked);
+    function pcInfoClicked(){
+        $('#pc-info-reveal').toggleClass('slide-down2 slide-up2').toggleClass('show');
+        setTimeout(() => {
+
+        $('#pc-info-reveal').toggleClass('no-display');
+        }, 150);
+    }
+
 
 

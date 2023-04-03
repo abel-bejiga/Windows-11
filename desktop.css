@@ -6,6 +6,10 @@
 }
 :root {
     --main-color: rgba(199, 214, 247, 0.952);
+    --hover-color: rgba(143, 143, 143, 0.151);
+    --secondary-hover: rgba(238, 238, 238, 0.616);
+    --menu-bg: rgb(225, 235, 253);
+    --app-disc-font: 12px;
 }
 body {
     overflow: hidden ;
@@ -51,7 +55,7 @@ body {
 }
 .dsk-top-apps > .first-app::after {
     content: 'Recycle Bin';
-    font-size: 11px;
+    font-size: var(--app-disc-font);
     position: absolute;
     top: 70px;
     
@@ -63,7 +67,7 @@ body {
 } 
 .dsk-top-apps > .second-app::after {
     content: 'Microsoft Edge';
-    font-size: 11px;
+    font-size: var(--app-disc-font);
     position: absolute;
     top: 150px;
     left: 10px;
@@ -89,6 +93,10 @@ body {
 
     
 }
+.bar-right {
+    margin-right: 15px;
+}
+
 .bar-center ul li, .bar-right ul li {
     padding: 0 5px;
 }
@@ -150,9 +158,9 @@ body {
     width: 16px;
 }
 
-.bar-center ul li:not([type=search-bar]):hover, .bar-right ul li:hover {
+.bar-center ul li:not([type=search-bar]):hover, .bar-right ul li:not([class=no-hover]):hover, .pc-info:hover {
     border-radius: 3px;
-    background-color: rgba(238, 238, 238, 0.616);
+    background: var(--secondary-hover);
 
 }
 
@@ -163,6 +171,10 @@ body {
     margin-right: 5px;
     text-align: right;
 }
+.pc-info {
+    display: flex;
+}
+
                             /* start menu */
 
 
@@ -174,8 +186,8 @@ body {
     min-height: 500px;
     bottom: 50px;
     left: 50%;
-    transform: translate(-50%);
-    background: rgb(225, 235, 253);
+    transform: translateX(-100%);
+    background: var(--menu-bg);
     border-radius: 10px;
     
 }
@@ -244,10 +256,10 @@ body {
 }
 .mid-btn-menu > ul > li:hover {
     border-radius: 3px;
-    background-color: rgba(238, 238, 238, 0.616);
+    background: var(--hover-color);
 }
 .mid-btn-menu > ul > li > p {
-    font-size: 12px;
+    font-size: var(--app-disc-font);
     display: flex;
     text-transform: capitalize;
     text-align: center;
@@ -275,14 +287,14 @@ body {
 }
 .start-end-doc > ul > li:hover {
     border-radius: 3px;
-    background-color: rgba(238, 238, 238, 0.616);
+    background: var(--hover-color);
 }
 .start-end-doc > ul > li img{
     width: 35px;
     float: left;
 }
 .end-doc-disc p {
-    font-size: 13px;
+    font-size: var(--app-disc-font);
 
 }
 .end-doc-disc span {
@@ -323,11 +335,114 @@ body {
 }
 .start-bottom-right > img{
     width: 20px;
+    transition: all 0.5s;
+}
+.start-bottom-right > img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+                            /* pc info(right taskbar)  */
+#pc-info-reveal {
+    position: absolute;
+    right: 15px;
+    bottom: 50px;
+    width: 350px;
+    height: 350px;
+    background: red;
+    border-radius: 10px;
+}
+#pc-info-reveal ul {
+    list-style: none;
+    margin: 20px;
+}
+.pc-info-top > ul > li > .pc-info-img > img, .pc-info-mid > ul > li > img, .pc-info-bot > ul > li > img, .sub-woofer img  {
+    width: 18px;
+}
+.added-angle img {
+    width: 12px;
+}
+
+.fis {
+    position: relative;
+}
+
+.added-angle:not(.no-before)::before {
+    content: '';
+    width: 0px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.096);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+}
+.pc-info-top ul{
+    display: flex;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    gap: 15px 0px;
+}
+.pc-info-top > ul > li{
+    text-align: center;
+    display: grid;
+    gap: 5px;
+}
+.pc-info-top > ul > li > .pc-info-img {
+    display: flex;
+    justify-content: center;
+    place-content: center;
+    padding: 15px;
+    width: 96px;
+    background: var(--secondary-hover);
+    border-radius: 3px;
+    align-items: center;
+}
+.pc-info-top > ul > li > .pc-info-img:not(.icon-features){
+    gap: 30px;
+}
+
+.pc-info-top > ul > li > .pc-info-img:hover {
+    background: var(--hover-color);
+}
+
+.pc-info-top > ul > li > p:not([class=airplane-exception]) {
+    text-transform: capitalize;
+    font-size: var(--app-disc-font);
+}
+.airplane-exception {
+    font-size: var(--app-disc-font);
+}
+.icon-features {
+
+    gap: 5px;
+
+}
+.icon-features .added-angle img {
+    width:10px;
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* icon active effect */
+.bar-center li img, .mid-btn-menu li img{
+    transition: all 0.3s;
+}
+.bar-center li img:active, .mid-btn-menu li img:active {
+    transform: scale(0.7);
+}
 
 
 
@@ -335,26 +450,56 @@ body {
 
                 /* keyframes */
 @keyframes slideUp {
-    from{top:100%; transform: translate(-50%,100%); opacity: 0;
+    from{ transform: translate(-50%,100%); opacity: 0;
     }
     to{transform: translate(-50%, 0%); opacity: 1;}
 }
 @keyframes slideDown {
     from{transform: translate(-50%, 0%); opacity: 1; }
-    to{transform: translate(-50%,100%); opacity: 0; display: none;}
+    to{transform: translate(-50%,100%); opacity: 0;}
 }
 
-
-
+@keyframes slideUp2 {
+    from{bottom:-400px; opacity: 0;}
+    to{ botttom:50px; opacity: 1;}
+}
+@keyframes slideDown2 {
+    from{bottom:50px; opacity: 1;}
+    to{ bottom:-400px; opacity: 0;}
+}
 
                 /* keyframe animations */
-.slide-up, .slide-down {
+.slide-up, .slide-down, .slide-up2, .slide-down2 {
     transition: all 0.2s;
 }
 .slide-up {
     animation: slideUp 0.2s ease-in 1 forwards;
+}.slide-up2 {
+    animation: slideUp2 0.2s ease-in 1 forwards;
 }
 .slide-down{
-    animation: slideDown 0.5s ease-out 1 backwards;
+    animation: slideDown 0.2s ease-out 1 backwards;
+}
+.slide-down2{
+    animation: slideDown2 0.2s ease-out 1 backwards;
 }
 
+
+
+
+
+
+                                /* media queries */
+@media screen and (min-width: 2500px) {
+    .dsk-top-bg {
+        background-image: url(./image/default_bg_xL.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+    
+    }
+    .first-app::after, .second-app::after {
+        color: white;
+    }
+}
