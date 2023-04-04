@@ -33,6 +33,7 @@ body {
     height: 100vh;
 
 }
+
 .dsk-top-apps{
     display: flex;
     flex-direction: column;
@@ -349,14 +350,14 @@ body {
     bottom: 50px;
     width: 350px;
     height: 350px;
-    background: red;
+    background: var(--menu-bg);
     border-radius: 10px;
 }
 #pc-info-reveal ul {
     list-style: none;
     margin: 20px;
 }
-.pc-info-top > ul > li > .pc-info-img > img, .pc-info-mid > ul > li > img, .pc-info-bot > ul > li > img, .sub-woofer img  {
+.pc-info-top > ul > li > .pc-info-img > img, .pc-info-mid > ul > li > img, .pc-info-bot > ul > li > img{
     width: 18px;
 }
 .added-angle img {
@@ -365,6 +366,7 @@ body {
 
 .fis {
     position: relative;
+
 }
 
 .added-angle:not(.no-before)::before {
@@ -401,10 +403,14 @@ body {
 }
 .pc-info-top > ul > li > .pc-info-img:not(.icon-features){
     gap: 30px;
+
+}
+.pc-info-top > ul > li > .pc-info-img{
+    background: #00000015;
 }
 
 .pc-info-top > ul > li > .pc-info-img:hover {
-    background: var(--hover-color);
+    /* background: var(--hover-color); */
 }
 
 .pc-info-top > ul > li > p:not([class=airplane-exception]) {
@@ -421,16 +427,80 @@ body {
 }
 .icon-features .added-angle img {
     width:10px;
+
 }
 
+.pc-info-mid > ul {
+    display: grid;
+    gap:30px;
+    padding-top: 10px;
+}
 
+.pc-info-mid > ul > li{
+    display: flex;
+    gap: 5px;
+}
 
+.pc-info-mid > ul > li input {
+    width: 250px;
+    margin-left: 5px ;
 
+}
 
+.sub-woofer {
+    display: flex;
+    width: 20px;
+    align-items: center;
+}
+.sub-woofer img {
+    width:18px;
+} 
+#subwoofer-angle {
+    height:12px;
+    width: 8px;
+}
 
+.pc-info-bot {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: var(--menu-bg);
+    height: 50px;
+    border-radius: 0 0 10px 10px;
+    
+}
+.pc-info-bot > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto !important;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 10px;
+}
+.pc-info-bot > ul > li {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.pc-info-bot > ul > li > p {
+    font-size: var(--app-disc-font);
+}
+#bot-menu-right {
+    display: flex;
+    gap: 20px;
+}
+.pc-info-top > ul > li > .bot-right-menu-click-col {
+    background: #7ae6dbb4;
 
+}
+/* 
+.pc-info-top > ul > li > .pc-info-img{
+    background: #7ae6dbb4;
 
-
+} */
 
 
 

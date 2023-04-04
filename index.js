@@ -183,5 +183,19 @@ $('.pc-info').click(pcInfoClicked);
         }, 150);
     }
 
+$('.pc-info-img').click(settingsClicked);
+    function settingsClicked(){
+        $(this).toggleClass('bot-right-menu-click-col');
+    }
 
+
+    // brightness slider ////////////////////////////
+    function changeBrightness(value){
+    let brightness = $('body');
+    brightness.css('filter', 'brightness('+value/100+')')
+}
+$('.brightness-slider').on('input', bright);
+    function bright(){
+        changeBrightness(this.value);
+    }
 

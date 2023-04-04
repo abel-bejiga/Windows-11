@@ -474,11 +474,11 @@ body {
 
 .loader-login, .loader-wrapper {
   position: absolute;
-  top: 160%;
+  top: 200%;
   left: 50%;
-  transform: translate(-50%, -160%);
+  transform: translate(-50%, -200%);
   display: grid;
-  row-gap: 20px;
+  row-gap: 50px;
 }
 .loader-wrapper {
   top: 70%;
