@@ -33,7 +33,7 @@
   background: var(--main-col);
   color: rgb(212, 212, 212);
 } */
-body {
+.body {
   background: #1b1a23;
   height: 100vh;
   font: 400 16px "Poppins", sans-serif;

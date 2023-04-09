@@ -24,6 +24,7 @@ body {
 .dsk-top {
     position: absolute;
     width: 100%;
+
 }
 .dsk-top-bg {
     background-image: url(./image/default_bg-dsk-top.jpg);
@@ -31,7 +32,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    z-index: -999;
 
+}
+.dsk-top-shade {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
 }
 
 .dsk-top-apps{
@@ -85,7 +93,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    z-index: 9999;
 }
 .bar-center ul, .bar-right ul{
     display: flex;
@@ -496,13 +504,6 @@ body {
     background: #7ae6dbb4;
 
 }
-/* 
-.pc-info-top > ul > li > .pc-info-img{
-    background: #7ae6dbb4;
-
-} */
-
-
 
 
 

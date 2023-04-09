@@ -144,24 +144,49 @@ function dsktopSearch(){
     $(this).css('text-indent', '33px');
     
 }
-// $(".start-search input").click(startSearch)
-// function startSearch(){
-//     $(this).toggleCss('text-indent', '45px');
-    
-// }
-// adding date and time on desktop
+////////////////////////////////////////
 
+// adding date and time on desktop
+// fetching current date
+
+function dateDisplay (){
+
+    const currentDate = new Date();
+    const currentDayOfMonth = currentDate.getDate();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = currentDate.getFullYear();
+    const dateString = (`${currentMonth}/${currentDayOfMonth}/${currentYear}`)
+    return dateString;
+    }
+    
+    
+    // fetching current time
+    
+    function timeDisplay (){
+        const currentTime = new Date();
+        const currentHour = currentTime.getHours();
+        const currentMinute = currentTime.getMinutes();
+        const adjustedMinute = currentMinute < 10 ?'0' + currentMinute: '' + currentMinute;
+        const timeString = (`${currentHour}:${adjustedMinute}`)
+        return timeString;
+    }
+    
 $("#current-time").html(timeDisplay());
 $("#current-date").html(dateDisplay());
+///////////////////////////////////////////////
 
-                // desktop funcitonality //////
+                // taskbar funcitonality //////
                 // start menu ////
 $("#start-btn").click(startBtnClicked);
     function startBtnClicked(){
         $('#start-menu').toggleClass('slide-down slide-up').toggleClass('show');
+        $('#pc-info-reveal').removeClass('show slide-up2').addClass('slide-down2');
+
         setTimeout(() => {
             
-            $('#start-menu').toggleClass('no-display');
+        $('#start-menu').toggleClass('no-display');
+        $('#pc-info-reveal').addClass('no-display');
+
         }, 150);
 
     }
@@ -174,20 +199,39 @@ function winKeyPressed(e) {
             console.log(key)
         }
 }
+
+        // pcinfo (right taskbar navigation)////////////
 $('.pc-info').click(pcInfoClicked);
     function pcInfoClicked(){
         $('#pc-info-reveal').toggleClass('slide-down2 slide-up2').toggleClass('show');
+        $('#start-menu').removeClass('show slide-up').addClass('slide-down');
         setTimeout(() => {
-
+        $('#start-menu').addClass('no-display');
         $('#pc-info-reveal').toggleClass('no-display');
         }, 150);
     }
-
-$('.pc-info-img').click(settingsClicked);
+    $('.pc-info-img').click(settingsClicked);
     function settingsClicked(){
         $(this).toggleClass('bot-right-menu-click-col');
     }
 
+    // close menus on blank screen click///////////////
+$('.dsk-top-shade').click(closeOnClick);
+    function closeOnClick(){
+        console.log('click')
+        if (($('#pc-info-reveal').hasClass('slide-up2 show')) || ($('#start-menu').hasClass('slide-up show'))){
+            $('#pc-info-reveal').removeClass('show slide-up2').addClass('slide-down2');
+            $('#start-menu').removeClass('show slide-up').addClass('slide-down');
+            setTimeout(() => {
+                $('#start-menu').addClass('no-display');
+                $('#pc-info-reveal').addClass('no-display');
+                }, 150);
+        }
+        
+
+    }
+    closeOnClick()
+    /////////////////////////////////////////////////
 
     // brightness slider ////////////////////////////
     function changeBrightness(value){
