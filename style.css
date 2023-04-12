@@ -1,0 +1,570 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root {
+  --login-col: rgb(206, 206, 206);
+  --main-col: rgba(28, 126, 218, 0.849);
+  --main-color: rgba(199, 214, 247, 0.952);
+  --hover-color: rgba(143, 143, 143, 0.151);
+  --secondary-hover: rgba(238, 238, 238, 0.616);
+
+}
+/* .intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.intro > button {
+  width: 200px;
+  height: 140px;
+  border-color: transparent;
+  border-radius: 10px;
+  background: rgb(202, 202, 202);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.intro > button:hover {
+  transform: scale(1.2);
+  background: var(--main-col);
+  color: rgb(212, 212, 212);
+} */
+.body {
+  background: #1b1a23;
+  height: 100vh;
+  font: 400 16px "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.power-switch {
+  --color-invert: #ffffff;
+  --width: 150px;
+  --height: 150px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  height: var(--height);
+}
+.power-switch .button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.power-switch .button:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: radial-gradient(circle closest-side, var(--color-invert), transparent);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  transform: perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.power-switch .button .power-on,
+.power-switch .button .power-off {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  fill: none;
+  stroke: var(--color-invert);
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.power-switch .button .power-on .line,
+.power-switch .button .power-off .line {
+  opacity: 0.2;
+}
+.power-switch .button .power-on .circle,
+.power-switch .button .power-off .circle {
+  opacity: 0.2;
+  transform: rotate(-58deg);
+  transform-origin: center 80px;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 40;
+}
+.power-switch .button .power-on {
+  filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.8));
+}
+.power-switch .button .power-on .line {
+  opacity: 0;
+  transition: opacity 0.3s ease 1s;
+}
+.power-switch .button .power-on .circle {
+  opacity: 1;
+  stroke-dashoffset: 220;
+  transition: transform 0s ease, stroke-dashoffset 1s ease 0s;
+}
+.power-switch input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+}
+.power-switch input:checked + .button:after {
+  opacity: 0.15;
+  transform: scale(2) perspective(1px) translateZ(0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.power-switch input:checked + .button .power-on,
+.power-switch input:checked + .button .power-off {
+  -webkit-animation: click-animation 0.3s ease forwards;
+          animation: click-animation 0.3s ease forwards;
+  transform: scale(1);
+}
+.power-switch input:checked + .button .power-on .line,
+.power-switch input:checked + .button .power-off .line {
+  -webkit-animation: line-animation 0.8s ease-in forwards;
+          animation: line-animation 0.8s ease-in forwards;
+}
+.power-switch input:checked + .button .power-on .circle,
+.power-switch input:checked + .button .power-off .circle {
+  transform: rotate(302deg);
+}
+.power-switch input:checked + .button .power-on .line {
+  opacity: 1;
+  transition: opacity 0.05s ease-in 0.55s;
+}
+.power-switch input:checked + .button .power-on .circle {
+  transform: rotate(302deg);
+  stroke-dashoffset: 40;
+  transition: transform 0.4s ease 0.2s, stroke-dashoffset 0.4s ease 0.2s;
+}
+
+@-webkit-keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes line-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(10px);
+  }
+  40% {
+    transform: translateY(-25px);
+  }
+  60% {
+    transform: translateY(-25px);
+  }
+  85% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes click-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.loading {
+    background-image: url(./image/default_bg.jpg);
+    background-position: center bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+  }
+
+  .win11-img {
+    background-image: url(./image/Windows_11_logo.svg.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height:100%;
+    width: 50%;
+    min-width: 500px;
+    max-width: 700px;
+  }
+  .hide, #hide {
+    display: none !important;
+  }
+  .dark-cover2 {
+    height: 100vh;
+    background-color: rgba(3, 3, 3, 0.781);
+  }
+
+
+
+                          /* login page */
+
+  .login-top {
+    background-image: url(./image/login-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .dark-cover {
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.205);
+  }
+
+  .login-disc {
+    display: grid;
+    text-align: center;
+    color: var(--login-col);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    gap: 20px;
+    width: 30%;
+
+  }
+ 
+
+  .login-img {
+    background-image: url(./image/user_pp.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: auto;
+    
+  }
+
+  .user-info > p:nth-child(2) {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  .pwd-input {
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .pwd-input > input {
+    width: 50%;
+    max-width: 300px;
+    min-width: 200px;
+    height: 30px;
+    border-color: transparent;
+    box-shadow: 1px 3px 6px var(--main-col), inset 0px 1px 6px var(--main-col);
+    background: #00000094;
+    color: white;
+    border-radius: 4px;
+  }
+  .pwd-input > input::placeholder {
+    color: rgba(255, 255, 255, 0.521);
+    padding-left: 10px;
+  }
+  .pwd-input > button {
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    transition: all 0.5s;
+  }
+  .pwd-input > button:hover {
+    color: rgba(245, 245, 245, 0.452);
+
+  }
+  .sign-in {
+    display: grid;
+    font-size: 12px;
+    gap: 15px;
+  }
+  .pin-input-disc {
+    display: grid;
+    gap: 15px;
+  }
+  .login-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px 30px;
+    display: flex;
+    gap: 20px;
+  }
+  .login-bottom i {
+    color: #ffffffa9;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  .login-bottom i:hover {
+    color: #fff;
+    transform: scale(1.2);
+  }
+
+          /* access denied */
+  .access-denied {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .access-denied > h1 {
+    font-size: 50px;
+    white-space: nowrap;
+    color: black;
+    font-family: 'Eater', cursive;
+  }
+  .access-denied > p {
+    text-align: center;
+    font-size: 16px;
+    color: rgb(43, 38, 38);
+  }
+
+
+
+  #input-pin-invalid {
+    border: 3px solid red;
+    animation: shake 0.2s ease-in-out 1 forwards;
+  }
+
+  #input-pin-correct {
+    border: 3px solid green;
+    animation: greenCorrect 0.2s ease-in-out 1 forwards;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* keyframes */
+
+  @keyframes reviel {
+    from {opacity: 0;} to {opacity: 1;}
+    
+  }
+  @keyframes revielOut {
+    0% {transform: translate(0%);} 50% {transform: translate(-50%);} 100% {transform: translate(-100%);}
+    
+  }
+  .reviel {
+    animation: reviel 1.5s ease-in 1 forwards;
+  }
+  .reviel-triple {
+    animation: reviel 5s ease-in 1 forwards;
+  }
+  .reviel-out {
+    animation: revielOut 1.5s ease-in 1 forwards;
+  }
+  @keyframes shake {
+    0% {transform: translate(0);} 25%{transform: translate(3px);} 50%{transform: translate(0px);} 75%{transform: translate(-3px);} 100%{transform: translate(0);}
+  }
+  @keyframes greenCorrect {
+    from{border: 1px soild black;} to {border: 3px solid green;}
+  }
+
+  @keyframes fadeOut {
+    from{opacity: 1;} to {opacity: 0;}
+    
+  }
+  .fadeOut {
+    transition: all 0.5s;
+    animation: fadeOut 1s ease-out 1 backwards;
+  }
+  @keyframes scaleDown {
+    from {transform: scale(1);} to {transform: scale(0.8);}
+  }
+  .scaleDown {
+    transition: all 0.3s;
+    animation: scaleDown 0.3s ease-in-out 1 backwards;
+  }
+
+  /* spinning loader */
+
+
+.loader-login, .loader-shutdown .loader-wrapper {
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  display: grid;
+  row-gap: 50px;
+}
+.loader-wrapper {
+  top: 70%;
+  transform: translate(-50%, -70%);
+}
+.loader-login p, .loader-shutdown p {
+  font-weight: 600;
+}
+.loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  margin: auto;
+
+}
+.loader .circle {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation-iteration-count: infinite;
+  animation-name: orbit;
+  animation-duration: 5.5s;
+
+}
+.loader .circle:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+}
+.loader .circle:nth-child(2) {
+  animation-delay: 240ms;
+
+}
+.loader .circle:nth-child(3) {
+  animation-delay: 480ms;
+}
+.loader .circle:nth-child(4) {
+  animation-delay: 720ms;
+}
+.loader .circle:nth-child(5) {
+  animation-delay: 960ms;
+}
+@keyframes orbit {
+  0% {
+    transform: rotate(225deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+ }
+  7% {
+    transform: rotate(345deg);
+    animation-timing-function: linear;
+ }
+  30% {
+    transform: rotate(455deg);
+    animation-timing-function: ease-in-out;
+ }
+  39% {
+    transform: rotate(690deg);
+    animation-timing-function: linear;
+ }
+  70% {
+    transform: rotate(815deg);
+    opacity: 1;
+    animation-timing-function: ease-out;
+ }
+  75% {
+    transform: rotate(945deg);
+    animation-timing-function: ease-out;
+ }
+  76% {
+    transform: rotate(945deg);
+    opacity: 0;
+ }
+  100% {
+    transform: rotate(945deg);
+    opacity: 0;
+ }
+}
+
+
+
+
+

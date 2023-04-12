@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="desktop.css">
+    <title>Desktop</title>
+</head>
+<body>
+    <section>
+        <div class="dsk-top">
+            <div class="dsk-top-bg">
+                <div class="dsk-top-shade"></div>
+                <div class="dsk-top-apps">
+                    <div class="first-app"></div>
+                    <div class="second-app"></div>
+                </div>
+                <div class="taskbar">
+                    <div class="bar-left">
+                        <div class="weather">
+
+                        </div>
+                    </div>
+                    <div class="bar-center">
+                      <ul>  
+                        <li id="start-btn">
+                            <img src="./image/icons8-windows-11-96.png" alt="icons">
+                        </li>
+                        <li type="search-bar">
+                            <div class="search"><label for="taskbar-search">
+                                <img src="./image/icons8-search-96.png" alt="icons">
+                                <input type="text" placeholder="Search" id="taskbar-search">
+                            </label>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="./image/icons8-minimize-window-96.png" alt="icons">
+                        </li>
+                        <li>
+                            <img src="./image/icons8-microsoft-teams-2019-96.png" alt="icons">
+                        </li>
+                        <li>
+                            <img src="./image/icons8-microsoft-store-96.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./image/icons8-file-explorer-96.png" alt="icons">
+                        </li>
+                        <li>
+                            <img src="./image/icons8-microsoft-edge-96.png" alt="icons">
+                        </li>
+                        <li>
+                            <img src="./image/icons8-microsoft-onedrive-2019-96.png" alt="icons">
+                        </li>  
+                       
+                    </ul>
+                    </div>
+                    <div class="bar-right">
+                      <ul>  
+                        <li>
+                            <img src="./image/icons8-chevron-up-96.png" alt="icon">
+                        </li>
+                        <div class="pc-info">
+                        <li class="no-hover">
+                            <img src="./image/icons8-wired-network-connection-96.png" alt="icons">
+                        </li>
+                        <li class="no-hover">
+                            <img src="./image/icons8-audio-96.png" alt="icons">
+                        </li>
+                        <li class="no-hover">
+                            <img src="./image/icons8-charging-battery-96.png" alt="icons">
+                        </li>
+                    </div>
+                        <li id="date-time">
+                            <p id="current-time"></p>
+                            <p id="current-date">sdafasd</p>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <section id="pc-info-reveal" class="slide-down2 no-display">
+                    <div class="pc-info-top">
+                        <ul>
+                            <li>
+                                <div class="pc-info-img fis">
+                                <img src="./image/icons8-wi-fi-96.png" alt="icon">
+                                <div class="added-angle"><img src="./image/icons8-more-than-96.png" alt="icon"></div>
+                                </div>
+                                <p>available</p>
+                            </li>
+                            <li>
+                                <div class="pc-info-img fis">
+                                <img src="./image/icons8-bluetooth-96.png" alt="icon">
+                                <div class="added-angle"><img src="./image/icons8-more-than-96.png" alt="icon"></div>
+                                </div>
+                                <p>bluetooth</p>
+                            </li>
+                            <li>
+                                <div class="pc-info-img">
+                                <img src="./image/icons8-plane-96.png" alt="icon">
+                                </div>
+                                <p class="airplane-exception">Ariplane mode</p>
+                            </li>
+                            <li>
+                                <div class="pc-info-img">
+                                <img src="./image/icons8-charging-battery-96.png" alt="icon">
+                                </div>
+                                <p>battery</p>
+                            </li>
+                            <li>
+                                <div class="pc-info-img icon-features">
+                                <img src="./image/icons8-accessibility-96.png" alt="icon">
+                                <div class="added-angle  no-before">
+                                <img src="./image/icons8-more-than-96.png" alt="icon">
+                                </div>
+                                </div>
+                                <p>accessibility</p>
+                            </li>
+                            <li>
+                                <div class="pc-info-img icon-features">
+                                <img src="./image/icons8-screen-mirroring-96.png" alt="icon">
+                                <div class="added-angle  no-before">
+                                    <img src="./image/icons8-more-than-96.png" alt="icon">
+                                    </div>
+                                </div>
+                                <p>project</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div  class="pc-info-mid">
+                        <ul>
+                            <li>
+                                <img src="./image/icons8-sun-96.png" alt="icon">
+                                <input type="range" min="10" max="100" value="100" class="brightness-slider" id="myRange">
+                            </li>
+                            <li>
+                                <img src="./image/icons8-audio-96.png" alt="icon">
+                                <input type="range" min="1" max="100" value="50">
+                                <div class="sub-woofer">
+                                    <img src="./image/icons8-subwoofer-96.png" alt="icon">
+                                    <img id="subwoofer-angle" src="./image/icons8-more-than-96.png" alt="icon">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pc-info-bot">
+                        <ul>
+                            <li>
+                                <img src="./image/icons8-charging-battery-96.png" alt="icon">
+                                <p>97%</p>
+                            </li>
+                            <li id="bot-menu-right">
+                                <img src="./image/icons8-edit-96.png" alt="icon">
+                                <img src="./image/icons8-settings-96.png" alt="icon">
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section id="start-menu" class="no-display slide-down">
+                    <div class="start-menu">
+                        <div class="top-menu">
+                            <div class="start-search search">
+                                <label for="taskbar-search">
+                                    <img src="./image/icons8-search-96.png" alt="icons">
+                                    <input type="text" placeholder="Search for apps, settings and documents" id="start-search">
+                                </label>
+                            
+                        </div>
+                        </div>
+                        <div class="mid-menu">
+                            <div class="mid-top-menu">
+                            <div class="start-mid-left">
+                                <p>Pinned</p>
+                            </div>
+                            <div class="start-mid-right">
+                                <button type="button">All apps <img src="./image/icons8-more-than-96.png" alt=""> </button>
+                            </div>
+                            </div>
+                            <div class="mid-btn-menu">
+                                <ul>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-edge-96.png" alt="icon">
+                                        <p class="mid-ico-disc">edge</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-word-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">word</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-excel-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">excel</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-powerpoint-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">powerPoint</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-mail-96.png" alt="icon">
+                                        <p class="mid-ico-disc">mail</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-photos-96.png" alt="icon">
+                                        <p class="mid-ico-disc">photos</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-gear-96.png" alt="icon">
+                                        <p class="mid-ico-disc">setting</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-office-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">Microsoft 365 (office)</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-solitaire-collection-96.png" alt="icon">
+                                        <p class="mid-ico-disc">solitaire & casual games</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-instagram-96.png" alt="icon">
+                                        <p class="mid-ico-disc">instagram</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-google-drive-96.png" alt="icon">
+                                        <p class="mid-ico-disc">drive</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-power-apps-96.png" alt="icon">
+                                        <p class="mid-ico-disc">power apps</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-calculator-96.png" alt="icon">
+                                        <p class="mid-ico-disc">calculator</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-microsoft-todo-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">todo</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-adobe-photoshop-96.png" alt="icon">
+                                        <p class="mid-ico-disc">photoshop</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-visual-studio-code-2019-96.png" alt="icon">
+                                        <p class="mid-ico-disc">vsCode</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-postgresql-96.png" alt="icon">
+                                        <p class="mid-ico-disc">postgreSQL</p>
+                                    </li>
+                                    <li>
+                                        <img src="./image/icons8-visual-studio-96.png" alt="icon">
+                                        <p class="mid-ico-disc">visual studio</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="end-menu">
+                                <div class="start-end mid-top-menu">
+                                    <div class="end-mid-left start-mid-left">
+                                        <p>Recommended</p>
+                                    </div>
+                                    <div class="end-mid-right start-mid-right">
+                                        <button type="button">More <img src="./image/icons8-more-than-96.png" alt=""> </button>
+                                    </div>
+                                </div>
+                                <div class="start-end-doc">
+                                    <ul>
+                                       <li>
+                                        <img src="./image/icons8-image-file-96.png" alt="icon">
+                                           <div class="end-doc-disc">
+                                                <p>recent image 1.321
+                                                </p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li> 
+                                        <li>
+                                            <img src="./image/icons8-image-file-96.png" alt="icon">
+                                            <div class="end-doc-disc">
+                                                <p>recent image 1.321</p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="./image/icons8-image-file-96.png" alt="icon">
+                                            <div class="end-doc-disc">
+                                                <p>recent image 1.321</p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="./image/icons8-image-file-96.png" alt="icon">
+                                            <div class="end-doc-disc">
+                                                <p>recent image 1.321</p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="./image/icons8-image-file-96.png" alt="icon">
+                                            <div class="end-doc-disc">
+                                                <p>recent image 1.321</p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <img src="./image/icons8-image-file-96.png" alt="icon">
+                                            <div class="end-doc-disc">
+                                                <p>recent image 1.321</p>
+                                                <span>Apr 1<sup>st</sup></span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <footer class="start-footer">
+                                <div class="bottom-mid-menu">
+                                    <div class="start-bottom-left">
+                                        <img src="./image/user_pp.png" alt="profile picture">
+                                        <p>John Doe</p>
+                                    </div>
+                                    <div class="start-bottom-right">
+                                        <img src="./image/icons8-power-96.png" alt="image" onclick="openIntro()"> 
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                        </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+<!-- scripts -->
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="./app.js"></script>
+<script src="./index.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calc.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+    <script src="https://kit.fontawesome.com/daae0fece6.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="calculator">
+        <div class="calc-top">
+            <div class="logo">
+                <img id="logo" src="./image/icons8-calculator-96.png" alt="logo">
+                <p>calculator</p>
+            </div>
+            <div class="top-calc-imgs">
+            <img src="./image/calc_img/icons8-subtract-96.png" alt="logo">
+            <img src="./image/calc_img/icons8-rounded-square-96.png" alt="logo">
+            <img src="./image/calc_img/icons8-close-96.png" alt="logo">
+        </div>
+        </div>
+        <div class="calc-nav">
+            <div class="calc-hamburger">
+              <i class="fa-solid fa-bars"></i>
+                <p>standard</p>
+                <img src="./image/calc_img/icons8-advertisement-page-96.png" alt="">
+            </div>
+            <img id="top-calc-img" src="./image/calc_img/icons8-time-machine-96.png" alt="icon">
+        </div>
+        <div class="calc-input">
+            <input type="text" id="calc-input" placeholder="0">
+        </div>
+        <div class="calc-ms">
+          <p>MC</p>
+          <p>MR</p>
+          <p>M+</p>
+          <p>M-</p>
+          <p>MS</p>
+          <p>M<i class="fa-solid fa-angle-down"></i></p>
+        </div>
+        <div class="calc-main-body">
+            <table>
+                <tr>
+                  <td>%</td>
+                  <td id="clear-one-val">CE</td>
+                  <td id="calc-clear">C</td>
+                  <td>palceholder</td>
+                </tr>
+                <tr>
+                  <td>1/x</td>
+                  <td>x<sup>2</sup></td>
+                  <td>palceholder</td>
+                  <td><i class="fa-solid fa-divide"></i></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+                  <td><i class="fa-solid fa-xmark"></i></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td><i class="fa-solid fa-minus"></i></td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td><i class="fa-sharp fa-solid fa-plus"></i></td>
+                </tr>
+                <tr>
+                  <td>palceholder</td>
+                  <td>0</td>
+                  <td>.</td>
+                  <td><i class="fa-solid fa-equals"></i></td>
+                </tr>
+              </table>
+              
+        </div>
+    </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="calc.js"></script>
+</body>
+</html>

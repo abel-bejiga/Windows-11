@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/daae0fece6.js" crossorigin="anonymous"></script>
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2mily=Eater&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+  <section class="intro hide">
+    <!-- <button type="submit" id="continue-btn"><img src="./image/icons8-power-96.png" alt=""><p>Click here to continue</p></button>
+     -->
+     <div class="power-switch">
+      <input type="checkbox" />
+      <div class="button">
+        <svg class="power-off">
+          <use xlink:href="#line" class="line" />
+          <use xlink:href="#circle" class="circle" />
+        </svg>
+        <svg class="power-on">
+          <use xlink:href="#line" class="line" />
+          <use xlink:href="#circle" class="circle" />
+        </svg>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+        <line x1="75" y1="34" x2="75" y2="58"/>
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+        <circle cx="75" cy="80" r="35"/>
+      </symbol>
+    </svg>
+    
+    </div>
+  </section>
+  <section>
+     <div id="win-img">
+      <div class="dark-cover2">
+        <div class="win-img-disc">
+        <div class="win11-add-img"></div>
+        <div class="loader-wrapper">
+          <div class="loader">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+      </div>
+      </div>
+      </div>
+    </div>
+      <audio id="intro-sound" autoplay allow="autoplay">
+        <source controls  src="./sounds/windows_11_startup.mp3" type="audio/mpeg">
+      </audio>
+    </section>
+ 
+<!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
