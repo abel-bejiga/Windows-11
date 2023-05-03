@@ -8,7 +8,6 @@ function powerClicked(){
     $(this).addClass('hide')
     setTimeout(() => {
         
-   
     $('loader').removeClass('hide');
 $("main").removeClass('hide').addClass("reviel-triple")
 $("#win-img").removeClass('hide').addClass("reviel").addClass("loading")
@@ -69,6 +68,9 @@ let pinCheck = () => {
             // $('.pin-trials').removeClass('hide').html("<h3>Welcome!</h3>");
             $('.pin-input-disc').addClass('fadeOut').addClass('hide');
             $('.loader-login').removeClass('hide');
+
+            $('.loader-login p').html('Welcome!')
+
             correctPin();
             setTimeout(() => {
                 loginPage.addClass("hide");
@@ -98,6 +100,7 @@ function enterPressed(e){
        pinCheck();
     }
     return key;
+
 }
 // login pin counter ////////////////////////////
 let countTrial = 4;
@@ -118,6 +121,11 @@ let countTrial = 4;
             $('#login').addClass('hide');
             $('body').css('background', 'red')
             $('.access-denied').removeClass('hide');
+
+        setTimeout(() =>{
+            openIntro(); //going back to intro on 3 wrong pin
+        }, 3000)
+
 
         }
 }
@@ -190,13 +198,17 @@ $("#start-btn").click(startBtnClicked);
         }, 150);
 
     }
+
 $(document).keypress(winKeyPressed);
 function winKeyPressed(e) {
+}
+$(document).keypress(spaceBarPressed);
+function spaceBarPressed(e) {
+
 
     let key = e.which;
         if (key == 32){
             startBtnClicked();
-            console.log(key)
         }
 }
 
@@ -218,7 +230,6 @@ $('.pc-info').click(pcInfoClicked);
     // close menus on blank screen click///////////////
 $('.dsk-top-shade').click(closeOnClick);
     function closeOnClick(){
-        console.log('click')
         if (($('#pc-info-reveal').hasClass('slide-up2 show')) || ($('#start-menu').hasClass('slide-up show'))){
             $('#pc-info-reveal').removeClass('show slide-up2').addClass('slide-down2');
             $('#start-menu').removeClass('show slide-up').addClass('slide-down');
@@ -243,3 +254,29 @@ $('.brightness-slider').on('input', bright);
         changeBrightness(this.value);
     }
 
+
+    
+
+    $('#shutDownBtn').click(shutDownClicked);
+        function shutDownClicked(){
+        $('#login').addClass('hide');
+        $('#sign-in-success').addClass('hide');
+        $('#multiple-invalid-pin').addClass('hide');
+        $('#shut-down').removeClass('hide')
+        setTimeout(() => {
+            openIntro()
+            
+        }, 5000);
+
+
+    }
+    $('.start-bottom-right').click(desktopShutDown);
+        function desktopShutDown(){
+        $('.dsk-top').addClass('hide');
+        $('#shut-down').removeClass('hide');
+
+          setTimeout(() => {
+            openIntro()
+            
+        }, 5000);
+    }

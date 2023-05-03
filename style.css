@@ -487,6 +487,11 @@
 .loader-login p {
   font-weight: 600;
 }
+.loader-shutdown p {
+  position: relative;
+  top: -10px;
+}
+
 .loader {
   position: relative;
   display: flex;

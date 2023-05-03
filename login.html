@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +33,7 @@
                     <div class="circle"></div>
                     <div class="circle"></div>
                   </div>
-                  <p>Welcome!</p>
+                  <p></p>
                   
                 </div>
 
@@ -52,13 +53,24 @@
               <div class="login-bottom">
                 <i class="fa-solid fa-network-wired"></i>
                 <i class="fa-brands fa-accessible-icon"></i>
-                <i class="fa-solid fa-power-off" onclick="openIntro()"></i>
-              </div>
+                <i class="fa-solid fa-power-off" id="shutDownBtn"></i>
             </div>
           </div>
         </section>
         
-    
+        <section id="shut-down" class="shut-down-screen login-top hide">
+          <div class="loader-shutdown login-disc">
+              <p>Good Bye!</p>
+              <div class="loader">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+              </div>
+              
+          </div>
+        </section>
         <!-- access denied -->
         <section id="multiple-invalid-pin">
           <div class="access-denied hide">
@@ -83,3 +95,4 @@
         <script src="./index.js"></script>
     </body>
     </html>
+    

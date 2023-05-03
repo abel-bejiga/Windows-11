@@ -13,7 +13,7 @@ $('#clear-one-val').click(clearOneValue);
     digitArray.pop()
 
     console.log(digitArray)
-
+    return inputArr;
  }
 
 };
@@ -22,5 +22,12 @@ $('#calc-clear').click(clearClicked);
     calcInput.val('');
 };
 
-let numPad = Array.from(Array(7).keys())
-console.log(numPad)
+
+// division click
+
+// $('#divide-button').click(divideClicked)
+let divideClicked = (num1, num2, divide) => {
+    divide = num1 / num2
+    return divide 
+}
+

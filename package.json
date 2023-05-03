@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "windows-11"
+    "url": "git+https://github.com/abel-bejiga/Windows-11.git"
   },
   "publishConfig": {
     "@abel-bejiga:registry": "https://npm.pkg.github.com"

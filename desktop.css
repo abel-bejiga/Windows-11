@@ -48,6 +48,8 @@ body {
     width: 100px;
     justify-content: center;
     gap: 20px;
+    position: absolute;
+    
 }
 .dsk-top-apps > .first-app, .dsk-top-apps > .second-app {
     background-repeat: no-repeat;
