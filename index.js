@@ -1,3 +1,5 @@
+import key from './config.js'
+
 // windows and main intro logo ..on loading
 
     $(".intro").removeClass('hide')
@@ -123,7 +125,10 @@ let countTrial = 4;
             $('.access-denied').removeClass('hide');
 
         setTimeout(() =>{
-            openIntro(); //going back to intro on 3 wrong pin
+            shutDownClicked();
+                setTimeout(() => {
+                    openIntro(); //going back to intro on 3 wrong pin
+                }, 5000);
         }, 3000)
 
 
@@ -202,12 +207,12 @@ $("#start-btn").click(startBtnClicked);
 $(document).keypress(winKeyPressed);
 function winKeyPressed(e) {
 }
-$(document).keypress(spaceBarPressed);
-function spaceBarPressed(e) {
+$(document).keypress(zeroKeyPressed);
+function zeroKeyPressed(e) {
 
 
     let key = e.which;
-        if (key == 32){
+        if (key == 48){
             startBtnClicked();
         }
 }
@@ -280,3 +285,99 @@ $('.brightness-slider').on('input', bright);
             
         }, 5000);
     }
+
+
+    // /* version 1.2 added features*/
+
+    // password hide and show
+    let showPassword = $('#show')
+    let hiddenPassword = $('#hidden')
+    let pinSlot = $('#input-pin')
+
+function showClicked(){
+    pinSlot.prop('type', 'text')
+    showPassword.addClass('hide')
+    hiddenPassword.removeClass('hide')
+}
+function hideClicked(){
+    pinSlot.prop('type', 'password')
+    hiddenPassword.addClass('hide')
+    showPassword.removeClass('hide')
+
+}
+showPassword.click(showClicked)
+hiddenPassword.click(hideClicked)
+
+    // adding weather api
+
+
+const city = $('#weather-city')
+
+
+function weatherCity(input) { 
+    input = city.val()
+    $('.weather-input').addClass('hide')
+    $('.change-city').removeClass('hide')
+    const weatherIcons = {
+        '01d': '☀️',
+        '01n': '🌙',
+        '02d': '⛅️',
+        '02n': '⛅️',
+        '03d': '☁️',
+        '03n': '☁️',
+        '04d': '☁️',
+        '04n': '☁️',
+        '09d': '🌧️',
+        '09n': '🌧️',
+        '10d': '🌦️',
+        '10n': '🌦️',
+        '11d': '⛈️',
+        '11n': '⛈️',
+        '13d': '❄️',
+        '13n': '❄️',
+        '50d': '🌫️',
+        '50n': '🌫️'
+      };
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${key}`).then(response => response.json()).then(data => {
+      if (data.cod === 200){
+        let tempInK = data.main.temp;
+        let tempInF = `${Math.ceil(((tempInK - 273.15) * (9/5) + 32))} °F`
+        // $('#weather-btn').css('border-color', 'green')
+        setTimeout(() => {
+            $('.change-city').click(changeCity)
+        }, 2000);
+        $('.main-out').removeClass('hide')
+        $('#temp').text(tempInF)
+        console.log(data)
+        const icon = data.weather[0].icon
+        $('.main-out').removeClass('hide')
+        $('#status-icon').removeClass('hide').text(weatherIcons[icon])
+        $('#temp-disc').removeClass('hide').text(data.weather[0].main)
+
+
+    } else if(data.message === 'city not found') {
+        // $('#weather-btn').css('border-color', 'red')
+        $('#temp').text(data.message)
+        $('#temp-disc').addClass('hide')
+        $('#status-icon').addClass('hide')
+        $('.main-out').removeClass('hide')
+
+        $('.change-city').click(changeCity)
+        $('emoji-cont').addClass('hide')
+        console.log('asdfdsaf')
+    } 
+        
+    })
+    // return input
+}
+function changeCity(){
+    $('.weather-input').removeClass('hide')
+    $('.change-city').addClass('hide')
+    $('.main-out').addClass('hide')
+}
+
+$('#weather-btn').click(weatherCity)
+setTimeout(()=> {
+$('.info-box').addClass('hide')
+}, 7000)

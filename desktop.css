@@ -101,6 +101,7 @@ body {
     display: flex;
     gap: 3px;
     list-style: none;
+    margin: 0;
 
     
 }
@@ -169,7 +170,7 @@ body {
     width: 16px;
 }
 
-.bar-center ul li:not([type=search-bar]):hover, .bar-right ul li:not([class=no-hover]):hover, .pc-info:hover {
+.bar-center ul li:not([type=search-bar]):hover, .bar-right ul li:not([class=no-hover]):hover, .pc-info:hover, .weather-output:hover {
     border-radius: 3px;
     background: var(--secondary-hover);
 

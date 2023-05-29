@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="desktop.css">
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <script src="https://kit.fontawesome.com/daae0fece6.js" crossorigin="anonymous"></script>
+
     <title>Desktop</title>
 </head>
 <body>
@@ -19,7 +25,26 @@
                 </div>
                 <div class="taskbar">
                     <div class="bar-left">
+                        <div class="info-box animate__heartBeat">
+                            <p>Enter city below for weather Info <i class="fa-solid fa-arrow-down-long"></i></p>
+                        </div>
                         <div class="weather">
+                           <div class="weather-input">
+                            <input type="text" id="weather-city" placeholder="Type your City" min="5" max="20" required>
+                            <button id="weather-btn" class="weather-btn" type="submit"><i class="fa-solid fa-circle-arrow-right"></i></button>
+                           </div>
+                           <div class="weather-output">
+                            <div class="main-out hide">
+                               <div class="emoji-cont"><span id="status-icon"></span></div> 
+                                <div class="outPut-data">
+                                    <p id="temp"></p>
+                                    <p id="temp-disc"></p>
+                                </div>
+                            </div>
+                            <div class="change-city hide">
+                                <button type="submit" id="change-city-btn">Change City <i class="fa-solid fa-repeat"></i></button>
+                            </div>
+                           </div>
 
                         </div>
                     </div>
@@ -347,7 +372,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 <script src="./app.js"></script>
-<script src="./index.js"></script>
+<script src="./index.js" type="module"></script>
 
 
 </body>
